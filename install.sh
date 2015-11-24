@@ -19,10 +19,10 @@ export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket
 sleep 3
 export DISPLAY=:1.0
 
-# download and install arduino 1.6.6
-wget https://downloads.arduino.cc/arduino-1.6.6-linux64.tar.xz
-tar xf arduino-1.6.6-linux64.tar.xz
-mv arduino-1.6.6 $HOME/arduino_ide
+# download and install arduino 1.6.5
+wget http://downloads.arduino.cc/arduino-1.6.5-linux64.tar.xz
+tar xf arduino-1.6.5-linux64.tar.xz
+mv arduino-1.6.5 $HOME/arduino_ide
 
 # move this library to the arduino libraries folder
 ln -s $PWD $HOME/arduino_ide/libraries/Marzogh_Test_Library
@@ -391,3 +391,4 @@ function json_main_platforms()
   echo -e "||||||||||||||||||||||||||||| JSON STATUS ||||||||||||||||||||||||||||||\n"
 
 }
+
