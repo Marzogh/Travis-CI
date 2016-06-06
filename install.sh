@@ -8,7 +8,7 @@ fi
 
 # associative array for the platforms that will be verified in build_main_platforms()
 # this will be eval'd in the functions below because arrays can't be exported
-export MAIN_PLATFORMS='declare -A main_platforms=( [uno]="arduino:avr:uno" [micro]="arduino:avr:micro" [fio]="arduino:avr:fio" [mega]="arduino:avr:mega" [due]="arduino:sam:arduino_due_x" [zero]="arduino:samd:zero" [esp8266]="esp8266:esp8266:huzzah" [leonardo]="arduino:avr:leonardo" )'
+export MAIN_PLATFORMS='declare -A main_platforms=( [uno]="arduino:avr:uno" [due]="arduino:sam:arduino_due_x" [zero]="arduino:samd:zero" [esp8266]="esp8266:esp8266:huzzah" [leonardo]="arduino:avr:leonardo" [micro]="arduino:avr:micro" [fio]="arduino:avr:fio" [mega]="arduino:avr:mega" )'
 
 # associative array for other platforms that can be called explicitly in .travis.yml configs
 # this will be eval'd in the functions below because arrays can't be exported
@@ -19,13 +19,13 @@ export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket
 sleep 3
 export DISPLAY=:1.0
 
-# download and install arduino 1.6.9
-wget http://downloads.arduino.cc/arduino-1.6.9-linux64.tar.xz
+# download and install arduino 1.6.5
+wget https://downloads.arduino.cc/arduino-1.6.9-linux64.tar.xz
 tar xf arduino-1.6.9-linux64.tar.xz
 mv arduino-1.6.9 $HOME/arduino_ide
 
 # move this library to the arduino libraries folder
-ln -s $PWD $HOME/arduino_ide/libraries/Marzogh_Test_Library
+ln -s $PWD $HOME/arduino_ide/libraries/Adafruit_Test_Library
 
 # add the arduino CLI to our PATH
 export PATH="$HOME/arduino_ide:$PATH"
@@ -37,7 +37,7 @@ echo "########################################################################";
 
 # install the due, esp8266, and adafruit board packages
 echo -n "ADD PACKAGE INDEX: "
-DEPENDENCY_OUTPUT=$(arduino --pref "boardsmanager.additional.urls= https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, http://arduino.esp8266.com/stable/package_esp8266com_index.json" --save-prefs 2>&1)
+DEPENDENCY_OUTPUT=$(arduino --pref "boardsmanager.additional.urls=https://adafruit.github.io/arduino-board-index/package_adafruit_index.json,http://arduino.esp8266.com/stable/package_esp8266com_index.json" --save-prefs 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96"; else echo -e "\xe2\x9c\x93"; fi
 
 echo -n "DUE: "
