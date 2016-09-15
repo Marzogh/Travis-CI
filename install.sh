@@ -25,7 +25,7 @@ tar xf arduino-1.6.10-linux64.tar.xz
 mv arduino-1.6.10 $HOME/arduino_ide
 
 # move this library to the arduino libraries folder
-ln -s $PWD $HOME/arduino_ide/libraries/Adafruit_Test_Library
+ln -s $PWD $HOME/arduino_ide/libraries/Marzogh_Test_Library
 
 # add the arduino CLI to our PATH
 export PATH="$HOME/arduino_ide:$PATH"
