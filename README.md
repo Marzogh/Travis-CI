@@ -11,7 +11,7 @@ You will need to source the script in the `before_install` step of your
 `.travis.yml` file.
 
 ```
-source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
+source <(curl -SLs https://raw.githubusercontent.com/Marzogh/Travis-CI/master/install.sh)
 ```
 
 **Example `.travis.yml`:**
@@ -19,9 +19,9 @@ source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/
 language: c
 sudo: false
 before_install:
-  - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
+  - source <(curl -SLs https://raw.githubusercontent.com/Marzogh/Travis-CI/master/install.sh)
 install:
-  - arduino --install-library "Adafruit SleepyDog Library,Adafruit FONA Library"
+  - arduino --install-library "YOUR LIBRARY OF CHOICE"
 script:
   - build_main_platforms
 notifications:
