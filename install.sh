@@ -20,9 +20,9 @@ sleep 3
 export DISPLAY=:1.0
 
 # download and install arduino 1.6.5
-wget https://downloads.arduino.cc/arduino-1.8.2-linux64.tar.xz
-tar xf arduino-1.8.2-linux64.tar.xz
-mv arduino-1.8.2 $HOME/arduino_ide
+wget https://downloads.arduino.cc/arduino-1.6.12-linux64.tar.xz
+tar xf arduino-1.6.12-linux64.tar.xz
+mv arduino-1.6.12 $HOME/arduino_ide
 
 # move this library to the arduino libraries folder
 ln -s $PWD $HOME/arduino_ide/libraries/Marzogh_Test_Library
