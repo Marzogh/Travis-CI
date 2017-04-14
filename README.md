@@ -1,8 +1,8 @@
 # Travis CI Arduino Init Script
 
 The purpose of this repo is to create a centrally managed dependency
-install script for all Adafruit Arduino Library Travis CI configs.
-This will allow us to easily update the install steps without
+install script for all of my Arduino Library Travis CI configs.
+This will allow me to easily update the install steps without
 having to manually or programatically update 100+ `.travis.yml` files.
 
 ## Adding to Travis CI Configs
