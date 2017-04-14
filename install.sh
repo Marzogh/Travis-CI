@@ -12,7 +12,7 @@ export MAIN_PLATFORMS='declare -A main_platforms=( [uno]="arduino:avr:uno" [due]
 
 # associative array for other platforms that can be called explicitly in .travis.yml configs
 # this will be eval'd in the functions below because arrays can't be exported
-export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket5" [gemma]="arduino:avr:gemma" [rtl8195a]="realtek:ameba:ameba_rtl8195a )'
+export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket5" [gemma]="arduino:avr:gemma" [rtl8195a]="realtek:ameba:ameba_rtl8195a" )'
 
 # make display available for arduino CLI
 /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
