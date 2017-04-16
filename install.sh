@@ -12,7 +12,7 @@ export MAIN_PLATFORMS='declare -A main_platforms=( [uno]="arduino:avr:uno" [due]
 
 # associative array for other platforms that can be called explicitly in .travis.yml configs
 # this will be eval'd in the functions below because arrays can't be exported
-export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket5" [gemma]="arduino:avr:gemma" [rtl8195a]="realtek:ameba:ameba_rtl8195a" [rtl8710]="realtek:ameba:ameba_rtl8710" )'
+export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket5" [gemma]="arduino:avr:gemma" [rtl8195a]="realtek:ameba:ameba_rtl8195a" [rtl8710]="realtek:ameba:ameba_rtl8710" [simblee]="Simblee:Simblee:Simblee" )'
 
 # make display available for arduino CLI
 /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
@@ -40,7 +40,11 @@ echo -n "ADD PACKAGE INDEX: "
 DEPENDENCY_OUTPUT=$(arduino --pref "boardsmanager.additional.urls=https://adafruit.github.io/arduino-board-index/package_adafruit_index.json,http://arduino.esp8266.com/stable/package_esp8266com_index.json,https://github.com/Ameba8195/Arduino/raw/master/release/package_realtek.com_ameba_index.json" --save-prefs 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96"; else echo -e "\xe2\x9c\x93"; fi
 
-echo -n "REALTEK AMEBA: "
+echo -n "SIMBLEE: "
+DEPENDENCY_OUTPUT=$(arduino --install-boards Simblee:Simblee 2>&1)
+if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96"; else echo -e "\xe2\x9c\x93"; fi
+
+echo -n "AMEBA: "
 DEPENDENCY_OUTPUT=$(arduino --install-boards realtek:ameba 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96"; else echo -e "\xe2\x9c\x93"; fi
 
