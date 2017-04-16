@@ -8,11 +8,11 @@ fi
 
 # associative array for the platforms that will be verified in build_main_platforms()
 # this will be eval'd in the functions below because arrays can't be exported
-export MAIN_PLATFORMS='declare -A main_platforms=( [uno]="arduino:avr:uno" [due]="arduino:sam:arduino_due_x" [zero]="arduino:samd:zero" [esp8266]="esp8266:esp8266:huzzah" [leonardo]="arduino:avr:leonardo" [micro]="arduino:avr:micro" [fio]="arduino:avr:fio" [mega]="arduino:avr:mega" )'
+export MAIN_PLATFORMS='declare -A main_platforms=( [uno]="arduino:avr:uno" [due]="arduino:sam:arduino_due_x" [zero]="arduino:samd:zero" [esp8266]="esp8266:esp8266:huzzah" [leonardo]="arduino:avr:leonardo" [mega]="arduino:avr:mega" [rtl8195a]="realtek:ameba:ameba_rtl8195a" [rtl8710]="realtek:ameba:ameba_rtl8710" [simblee]="Simblee:Simblee:Simblee" )'
 
 # associative array for other platforms that can be called explicitly in .travis.yml configs
 # this will be eval'd in the functions below because arrays can't be exported
-export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket5" [gemma]="arduino:avr:gemma" [rtl8195a]="realtek:ameba:ameba_rtl8195a" [rtl8710]="realtek:ameba:ameba_rtl8710" [simblee]="Simblee:Simblee:Simblee" )'
+export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket5" [gemma]="arduino:avr:gemma" [micro]="arduino:avr:micro" [fio]="arduino:avr:fio" )'
 
 # make display available for arduino CLI
 /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
