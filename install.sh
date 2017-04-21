@@ -12,7 +12,7 @@ export MAIN_PLATFORMS='declare -A main_platforms=( [uno]="arduino:avr:uno" [due]
 
 # associative array for other platforms that can be called explicitly in .travis.yml configs
 # this will be eval'd in the functions below because arrays can't be exported
-export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket5" [gemma]="arduino:avr:gemma" [micro]="arduino:avr:micro" [fio]="arduino:avr:fio"  [rtl8195a]="realtek:ameba:ameba_rtl8195a" [rtl8710]="realtek:ameba:ameba_rtl8710" [zero]="arduino:samd:zero" )'
+export AUX_PLATFORMS='declare -A aux_platforms=( [trinket]="adafruit:avr:trinket3" [gemma]="arduino:avr:gemma" [micro]="arduino:avr:micro" [fio]="arduino:avr:fio"  [rtl8195a]="realtek:ameba:ameba_rtl8195a" [rtl8710]="realtek:ameba:ameba_rtl8710" [zero]="arduino:samd:zero" )'
 
 # make display available for arduino CLI
 /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
@@ -71,7 +71,7 @@ if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96"; else echo -e "\xe2\x9c\x93"; fi
 # install random lib so the arduino IDE grabs a new library index
 # see: https://github.com/arduino/Arduino/issues/3535
 echo -n "UPDATE LIBRARY INDEX: "
-DEPENDENCY_OUTPUT=$(arduino --install-library USBHost > /dev/null 2>&1)
+DEPENDENCY_OUTPUT=$(arduino --install-library SerialFlash > /dev/null 2>&1)
 if [ $? -ne 0 ]; then echo -e "\xe2\x9c\x96"; else echo -e "\xe2\x9c\x93"; fi
 
 # set the maximal compiler warning level
